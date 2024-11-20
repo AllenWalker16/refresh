@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./styles.css" rel="stylesheet">
+  <title>First dApp</title>
+</head>
+<body class="bg-gray-800 text-green-500 w-full h-full flex justify-center p-4">
+  <div class="">
+    <h1 class="font-semibold text-lg">This is my first Decentralized Application!</h1>
+    <p>Here we can set or get our current mood:</p>
+    <label for="mood">Input Mood:</label> <br />
+    <input type="text" id="mood" />
+
+    <button class="bg-black text-green-400 p-4 rounded-full w-full mt-4 outline ring-offset-purple-500" onclick="getMood()">Get Mood</button>
+    <button class="bg-black text-green-400 p-4 rounded-full w-full mt-4" onclick="setMood()">Set Mood</button>
+    <p id="showMood"></p>
+  </div>
+</body>
+</html>
