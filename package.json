@@ -11,10 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tailwindcss": "^2.2.19"
+    "tailwindcss": "^2.2.19",
+    "viem": "^2.21.48"
   },
   "devDependencies": {
     "lite-server": "^2.6.1"
   }
-  
 }

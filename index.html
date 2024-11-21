@@ -1,5 +1,73 @@
 <!doctype html>
 <html>
+  <script>
+    //aarbitrary placeholder for our two variables
+    var getMood;
+    var setMood;
+  </script>
+  <script type="module">
+      //A Wallet Client is an interface to interact with Ethereum Accounts.
+      //The createWalletClient function sets up a Wallet Client with a given medium.
+      import {createWalletClient,custom,getContract} from "https://esm.sh/viem";
+      import { sepolia } from "https://esm.sh/viem/chains";
+
+      //code in the above block
+      //create a client that connects the user's account to Ethereum Sepolia
+      const walletClient = createWalletClient({
+          chain: sepolia,
+          transport: custom(window.ethereum),
+        });
+
+      //this will make your wallet extension show you a pop-up requesting you to connect your wallet
+      //accounts will be an array
+      const accounts = await walletClient.requestAddresses();
+
+      //get the first address in the accounts array
+      const [address] = accounts;
+
+      //Replace the following two values
+      //Make sure the MoodContractAddress is in double single/double quotes 
+      const MoodContractAddress = "...";
+      const MoodContractABI = [
+        {
+        //setMood
+        "inputs": [{
+          "internalType": "string",
+          "name": "_mood",
+          "type": "string"
+        }],
+        "name": "setMood",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function",
+      }, 
+      {
+        //getMood
+        "inputs": [],
+        "name": "getMood",
+        "outputs": [{
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }],
+        "stateMutability": "view",
+        "type": "function",
+
+      }];
+
+      //create an instance of our contract such that we can interact with the frontend
+      //pre-existing code
+
+      const MoodContractInstance = getContract({
+          address: MoodContractAddress,
+          abi: MoodContractABI,
+          client: walletClient,
+        });
+
+//space for remaining code
+
+      //space for remaining code in the same script
+  </script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
